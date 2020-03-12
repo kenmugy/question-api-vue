@@ -14,6 +14,13 @@ export default {
   components: {
     Header,
     QuestionBox
+  },
+  created() {
+    const api = "";
+    fetch(api, { method: "GET" })
+      .then(res => res.json())
+      .then(data => data)
+      .catch(err => console.log(err));
   }
 };
 </script>
@@ -25,6 +32,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
