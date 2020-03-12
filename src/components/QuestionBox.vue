@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <h3>Question Here</h3>
+    <h3>{{triviaQuestion.question}}</h3>
     <div class="answers-div">
       <h4>Lists of Answers</h4>
       <div class="answers">
@@ -15,7 +15,10 @@
 
 <script>
 export default {
-  name: "QuestionBox"
+  name: "QuestionBox",
+  props: {
+    triviaQuestion: Object
+  }
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <QuestionBox />
+    <QuestionBox :triviaQuestion="questions[id]" />
   </div>
 </template>
 
@@ -15,11 +15,18 @@ export default {
     Header,
     QuestionBox
   },
+  data() {
+    return {
+      questions: [],
+      id: 0
+    };
+  },
   created() {
-    const api = "";
+    const api =
+      "https://opentdb.com/api.php?amount=10&category=27&type=multiple";
     fetch(api, { method: "GET" })
       .then(res => res.json())
-      .then(data => data)
+      .then(data => (this.questions = data.results))
       .catch(err => console.log(err));
   }
 };
